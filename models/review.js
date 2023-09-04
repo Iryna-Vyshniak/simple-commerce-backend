@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const handleMongooseError = require('../utils/mongooseError');
+const { handleMongooseError } = require('../helpers');
 
 const reviewSchema = new Schema(
   {

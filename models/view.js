@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const { mongooseError } = require('../utils');
+const { handleMongooseError } = require('../helpers');
 
 const viewSchema = new Schema(
   {
@@ -10,7 +10,7 @@ const viewSchema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-viewSchema.post('save', mongooseError);
+viewSchema.post('save', handleMongooseError);
 
 const View = model('view', viewSchema);
 
