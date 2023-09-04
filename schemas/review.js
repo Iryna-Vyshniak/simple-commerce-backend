@@ -23,6 +23,4 @@ const reviewSchema = Joi.object({
     }),
 });
 
-module.exports = {
-  reviewSchema,
-};
+module.exports = reviewSchema;
