@@ -6,7 +6,15 @@ const productSchema = new Schema(
     imgURL: { type: String, default: '' },
     name: { type: String, default: 'Nike Sport' },
     price: { type: String, default: '$10' },
-    popular: [{ thumbnail: { type: String, default: '' }, bigShoe: { type: String, default: '' } }],
+    description: { type: String, default: 'Nike Sport and Features' },
+    popular: Joi.object({
+      thumbnail: Joi.string()
+        .allow('')
+        .optional(),
+      bigShoe: Joi.string()
+        .allow('')
+        .optional(),
+    }),
   },
   { versionKey: false, timestamps: true }
 );

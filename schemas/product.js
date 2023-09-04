@@ -16,16 +16,11 @@ const validProduct = Joi.object({
     .min(0)
     .integer()
     .required(),
-  popular: Joi.array().items(
-    Joi.object({
-      thumbnail: Joi.string()
-        .allow('')
-        .optional(),
-      bigShoe: Joi.string()
-        .allow('')
-        .optional(),
-    })
-  ),
+  description: Joi.string(),
+  popular: {
+    thumbnail: { type: String, default: '' },
+    bigShoe: { type: String, default: '' },
+  },
 });
 
 module.exports = validProduct;
