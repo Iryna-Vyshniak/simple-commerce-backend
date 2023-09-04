@@ -3,6 +3,8 @@ const logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
+const { missingRouteHandler, globalErrorHandler } = require('./middlewares');
+
 const app = express();
 
 const routes = require('./routes/api');
@@ -14,5 +16,8 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.use('/api', routes);
+
+app.use(missingRouteHandler);
+app.use(globalErrorHandler);
 
 module.exports = app;
