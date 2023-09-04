@@ -17,10 +17,14 @@ const validProduct = Joi.object({
     .integer()
     .required(),
   description: Joi.string(),
-  popular: {
-    thumbnail: { type: String, default: '' },
-    bigShoe: { type: String, default: '' },
-  },
+  popular: Joi.object({
+    thumbnail: Joi.string()
+      .allow('')
+      .optional(),
+    bigShoe: Joi.string()
+      .allow('')
+      .optional(),
+  }),
 });
 
 module.exports = validProduct;
